@@ -144,7 +144,7 @@ services:
   taiga-gateway:
     image: nginx:1.19-alpine
     expose:
-      - "80"
+      - "9000:80"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.taiga-gateway.rule=Host(`justy-taiga.oqcow6.easypanel.host`)"
