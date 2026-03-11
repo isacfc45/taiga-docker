@@ -152,6 +152,13 @@ services:
     networks:
       - taiga
       - easypanel
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.taiga.rule=Host(`justy-taiga.oqcow6.easypanel.host`)"
+      - "traefik.http.routers.taiga.entrypoints=websecure"
+      - "traefik.http.routers.taiga.tls.certresolver=letsencrypt"
+      - "traefik.http.services.taiga.loadbalancer.server.port=80"
+      - "traefik.docker.network=easypanel"
     depends_on:
       - taiga-front
       - taiga-back
