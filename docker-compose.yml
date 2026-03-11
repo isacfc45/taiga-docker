@@ -142,7 +142,7 @@ services:
       - taiga
 
   taiga-gateway:
-    image: nginx:1.19-alpine  
+    image: nginx:1.19-alpine
     expose:
       - "80"
     volumes:
@@ -151,6 +151,7 @@ services:
       - taiga-media-data:/taiga/media
     networks:
       - taiga
+      - easypanel
     depends_on:
       - taiga-front
       - taiga-back
@@ -165,3 +166,5 @@ volumes:
 
 networks:
   taiga:
+  easypanel:
+    external: true
